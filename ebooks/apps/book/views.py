@@ -1,32 +1,23 @@
+from multiprocessing import context
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import Book, Genre
 
-main_menu = [
-    {'title': "Главная", 'url_name': 'home'}, 
-    {'title': "О сате", 'url_name': 'about'},
-    {'title': "Добавить книгу", 'url_name': 'add_book'},
-    {'title': "Задать вопрос", 'url_name': 'question'},
-    {'title': "Войти", 'url_name': 'login'},
-]
 
 def index(request):
     books = Book.objects.all()
-    genres = Genre.objects.all()
     context = {
         'books': books, 
-        'genres': genres,
-        'main_menu': main_menu,
         'title': 'Список книг',        
-        'genre_select': 0,
+        'genre_selected': 0,
     }
     
-    return render(request, 'book/index.html', context=context)
+    return render(request, 'book/book_list.html', context=context)
 
 
 def about(request):
-    return render(request, 'book/about.html', {'main_menu': main_menu,'title': 'О сайте'})
+    return render(request, 'book/about.html')
 
 
 def addbook(request):
@@ -42,8 +33,15 @@ def login(request):
 
 
 def show_book(request, book_id):
-    return HttpResponse("Жанры")
+    book = get_object_or_404(Book, pk=book_id)
+    
+    context = {
+        'book': book,
+        'title': book.book_name,
+        'genre_selected': book.genre_id,
+    }
 
+    return render(request, 'book/book_detail.html', context=context)
 
 def show_genre(request, genre_id):
     
@@ -53,17 +51,14 @@ def show_genre(request, genre_id):
         raise Http404()
     
     books = Book.objects.filter(genre_id=genre_id)
-    genres = Genre.objects.all()
        
     context = {
         'books': books, 
-        'genres': genres,
-        'main_menu': main_menu,
         'title': f'Список книг жанра: {genre}',        
-        'genre_select': genre_id,
+        'genre_selected': genre_id,
     }
     
-    return render(request, 'book/index.html', context=context)
+    return render(request, 'book/book_list.html', context=context)
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound("Страница не найдена")

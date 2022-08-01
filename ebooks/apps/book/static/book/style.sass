@@ -188,7 +188,6 @@ body
                 .blockStatisticsItem
                     margin: 0.5em 0
                     width: 33.3%
-                    float: left
                     display: flex
                     .itemContent
                         margin: 0.5em
@@ -197,7 +196,17 @@ body
                         position: relative
                         box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
                         border: 0.1em solid #DDDDDD
-                        background: #f6f6f6                     
+                        background: #f6f6f6
+                        .detail-url
+                            text-align: right 
+                        .book-image
+                            margin: 0 1em 0 0
+                            padding: 0
+                            width: 30%
+                            float: left
+                            img
+                                box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                                border: 0.1em solid #DDDDDD                            
                         .graphics
                             position: relative
                             margin: -1em 0 0.5em 0
@@ -211,7 +220,6 @@ body
                             font-size: 1.4em
                             color: #FFFFFF
                         a
-                            display: block
                             padding-left: 1.4em 
                             color: #333
                             text-decoration: none
@@ -445,7 +453,8 @@ body
                         display: block
                         height: 0
                         clear: both
-
+    .blockStatisticsItemDetail
+        width: 70% !important
     .clearing
         content: ''
         display: block

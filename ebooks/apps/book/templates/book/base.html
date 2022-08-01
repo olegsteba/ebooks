@@ -1,4 +1,5 @@
 {% load static %}
+{% load book_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,31 +25,19 @@
                     <h1><a href="{% url 'home' %}">eBooks</a></h1>
                 </div>
                 <hr />    
-                {% block mainmenu %}
-                <div class="blockPadding_1em leftMenu">
-                    <ul>
-                        {% for menu in main_menu %}
-                            <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endblock mainmenu %}
+                {% show_main_menu %}
                 <hr />
                 <div class="blockPadding_1em leftMenu">
                     <h1>Меню по жанрам</h1>
                     <ul>
-                        {% if genre_select == 0 %}
+                        {% if genre_selected == 0 %}
                             <li class="active"><a href="{% url 'home' %}">Все жанры</a></li>
                         {% else %}
                             <li><a href="{% url 'home' %}">Все жанры</a></li>
                         {% endif %} 
-                        {% for genre in genres %}
-                            {% if genre.pk == genre_select %}
-                                <li class="active"><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
-                            {% else %}
-                                <li><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
-                            {% endif %} 
-                        {% endfor %}
+
+                        {% show_genres sort='genre_name' genre_selected=genre_selected %}
+
                     </ul>
                 </div>                
             </div>

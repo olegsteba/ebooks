@@ -1,0 +1,29 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <div id="blockStatistics">
+        {% for book in books %}
+        <div id="sale" class="blockStatisticsItem">
+            <div class="itemContent">
+                <div class="graphics title">{{ book.book_name }}</div>
+                {% if book.book_image %}
+                    <div class="book-image"><img src="{{ book.book_image.url }}" /></div>
+                {% endif %}
+                <div class=""><b>Автор:</b> 
+                {% for author in book.author.all %}    
+                    {{ author }},
+                {% endfor %}
+                <div class=""><b>Год издания:</b> {{ book.date_create|date:"Y" }}г.</div>
+                </div>
+                <div class=""><b>Жанр:</b> {{ book.genre }}</div>
+                <div class="">{{ book.description|linebreaks|truncatewords:50 }}</div>
+                <div class="clearing"></div>
+                <hr />
+                <div class="detail-url"><a href="{{ book.get_absolute_url }}" class="link-read-book">Подробнее >></a></div>
+            </div>
+        </div>   
+        {% endfor %}
+    </div>
+
+{% endblock content %}

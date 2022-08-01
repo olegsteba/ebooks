@@ -301,7 +301,6 @@ body div#admPanel div#blockContext div#blockStatistics {
 body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem {
   margin: 0.5em 0;
   width: 33.3%;
-  float: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -316,6 +315,23 @@ body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .ite
           box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
   border: 0.1em solid #DDDDDD;
   background: #f6f6f6;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .detail-url {
+  text-align: right;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .book-image {
+  margin: 0 1em 0 0;
+  padding: 0;
+  width: 30%;
+  float: left;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .book-image img {
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  border: 0.1em solid #DDDDDD;
 }
 
 body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .graphics {
@@ -337,7 +353,6 @@ body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .ite
 }
 
 body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent a {
-  display: block;
   padding-left: 1.4em;
   color: #333;
   text-decoration: none;
@@ -698,6 +713,10 @@ body div#admPanel div#blockFooter .mainMenu ul::after {
   display: block;
   height: 0;
   clear: both;
+}
+
+body .blockStatisticsItemDetail {
+  width: 70% !important;
 }
 
 body .clearing {

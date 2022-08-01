@@ -1,9 +1,11 @@
+from django.contrib import admin
 from django.db import models
 from django.urls import reverse
 
 
 class Book(models.Model):
     book_name = models.CharField(max_length=1024, verbose_name='Название книги')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, null=True, verbose_name="URL адрес")
     description = models.TextField(verbose_name='Описание')
     book_image = models.ImageField(
         upload_to='books/%Y/%m/%d', 
@@ -19,7 +21,6 @@ class Book(models.Model):
         on_delete=models.PROTECT,
         related_name="genre_books",
         verbose_name="ID жанра",
-        null=True,
     )
     publishing_house = models.ForeignKey(
         "PublishingHouse",
@@ -43,10 +44,12 @@ class Book(models.Model):
     class Meta:
         verbose_name = "Книга"
         verbose_name_plural = "Книги"
+        ordering = ['-pk', 'book_name']
         
         
 class Genre(models.Model):
     genre_name = models.CharField(max_length=512, db_index=True, verbose_name="Жанр")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, null=True, verbose_name="URL адрес")
     is_deleted = models.BooleanField(default=False, verbose_name='Удален')
 
     def get_absolute_url(self):
@@ -94,3 +97,6 @@ class Author(models.Model):
         verbose_name = "Автор"
         verbose_name_plural = "Авторы"
 
+
+class BookInAuthor(admin.TabularInline):
+    model = Book.author.through

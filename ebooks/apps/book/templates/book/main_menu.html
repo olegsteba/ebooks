@@ -1,0 +1,9 @@
+{% block mainmenu %}
+<div class="blockPadding_1em leftMenu">
+    <ul>
+        {% for menu in main_menu %}
+            <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock mainmenu %}

@@ -1,0 +1,993 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 10pt;
+  background-color: #eaeaea;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+
+body h1 {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+body hr {
+  padding: 0;
+  border: 0;
+  height: 0.1em;
+  border-top: 0.05em solid #aaa;
+}
+
+body img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}
+
+body a {
+  color: #333;
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: underline;
+}
+
+body div#blockMain {
+  margin: 0;
+  padding: 0;
+  max-width: 1980px;
+  min-width: 500px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div#admMenu {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  float: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 15em;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+
+body div#admMenu div#blockAdmMenu {
+  width: inherit;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+body div#admMenu div#blockAdmMenu div#iconAdmMenu {
+  display: none;
+}
+
+body div#admMenu div#blockAdmMenu div#iconAdmMenu img {
+  cursor: pointer;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li {
+  margin: 0;
+  padding: 0;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a {
+  display: block;
+  padding: 1em 1em 1em 2em;
+  background-position: 0.3em center;
+  color: #333;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 1.4em 1.4em;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a.home {
+  background-image: url("../images/dashboard_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a.login {
+  background-image: url("../images/account_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a.about {
+  background-image: url("../images/map_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a.add_book {
+  background-image: url("../images/notify_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li a.question {
+  background-image: url("../images/support_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover {
+  background-color: #c32056;
+  color: #FFFFFF;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a {
+  color: #FFFFFF;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a.home {
+  background-image: url("../images/dashboard_white.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a.login {
+  background-image: url("../images/account_white.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a.about {
+  background-image: url("../images/map_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a.add_book {
+  background-image: url("../images/notify_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li:hover a.question {
+  background-image: url("../images/web.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active {
+  background-color: #c32056;
+  color: #FFFFFF;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a {
+  color: #FFFFFF;
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a.dashboard {
+  background-image: url("../images/dashboard_white.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a.user_profile {
+  background-image: url("../images/account_white.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a.maps {
+  background-image: url("../images/map_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a.notifications {
+  background-image: url("../images/notify_gray.svg");
+}
+
+body div#admMenu div#blockAdmMenu div#textAdmMenu .leftMenu ul li.active a.support {
+  background-image: url("../images/web.svg");
+}
+
+body div#admPanel {
+  margin: 0;
+  padding: 0;
+  float: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(100vw - 17em);
+  min-width: calc(100vw - 17em);
+  min-height: 100vh;
+  background-color: #eaeaea;
+}
+
+body div#admPanel div#blockContext {
+  margin: 0;
+  padding: 0;
+  min-height: calc(100vh - 5.2em);
+}
+
+body div#admPanel div#blockContext div#blockInfo {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem {
+  margin: 0.5em 0;
+  width: 25%;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem .itemContent {
+  margin: 0.5em;
+  padding: 1em;
+  width: 100%;
+  position: relative;
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  border: 0.1em solid #DDDDDD;
+  background: #f6f6f6;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem .itemContent .icon {
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.5em;
+  top: -1em;
+  left: 1em;
+  -webkit-box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem .itemContent .text-info {
+  font-size: 1.6em !important;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem .itemContent a {
+  display: block;
+  padding-left: 1.4em;
+  color: #333;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  background-position: left center;
+}
+
+body div#admPanel div#blockContext div#blockInfo .blockInfoItem .itemContent a:hover {
+  text-decoration: underline;
+}
+
+body div#admPanel div#blockContext div#blockInfo #data .icon {
+  background: #448B00;
+}
+
+body div#admPanel div#blockContext div#blockInfo #data a {
+  background-image: url("../images/alert.png");
+}
+
+body div#admPanel div#blockContext div#blockInfo #revenue .icon {
+  background: #D89E24;
+}
+
+body div#admPanel div#blockContext div#blockInfo #revenue a {
+  background-image: url("../images/calendar.png");
+}
+
+body div#admPanel div#blockContext div#blockInfo #fixed_issues .icon {
+  background: #274D97;
+}
+
+body div#admPanel div#blockContext div#blockInfo #fixed_issues a {
+  background-image: url("../images/down.png");
+}
+
+body div#admPanel div#blockContext div#blockInfo #followers .icon {
+  background: #C32056;
+}
+
+body div#admPanel div#blockContext div#blockInfo #followers a {
+  background-image: url("../images/time.png");
+}
+
+body div#admPanel div#blockContext div#blockStatistics {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem {
+  margin: 0.5em 0;
+  width: 33.3%;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent {
+  margin: 0.5em;
+  padding: 1em;
+  width: 100%;
+  position: relative;
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  border: 0.1em solid #DDDDDD;
+  background: #f6f6f6;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .graphics {
+  position: relative;
+  margin: -1em 0 0.5em 0;
+  padding: 0.5em;
+  -webkit-box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent .title {
+  position: relative;
+  margin: -1em 0 0.5em 0;
+  padding: 0.5em;
+  -webkit-box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  font-size: 1.4em;
+  color: #FFFFFF;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent a {
+  display: block;
+  padding-left: 1.4em;
+  color: #333;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  background-position: left center;
+}
+
+body div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem .itemContent a:hover {
+  text-decoration: underline;
+}
+
+body div#admPanel div#blockContext div#blockStatistics #sale .graphics {
+  background: #448B00;
+}
+
+body div#admPanel div#blockContext div#blockStatistics #sale a {
+  background-image: url("../images/time.png");
+}
+
+body div#admPanel div#blockContext div#blockStatistics #email .graphics {
+  background: #D89E24;
+}
+
+body div#admPanel div#blockContext div#blockStatistics #email a {
+  background-image: url("../images/time.png");
+}
+
+body div#admPanel div#blockContext div#blockStatistics #task .graphics {
+  background: #274D97;
+}
+
+body div#admPanel div#blockContext div#blockStatistics #task a {
+  background-image: url("../images/time.png");
+}
+
+body div#admPanel div#blockContext div#blockTaskWork {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem {
+  margin: 0.5em 0;
+  width: 50%;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent {
+  margin: 0.5em;
+  padding: 1em;
+  width: 100%;
+  position: relative;
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  border: 0.1em solid #DDDDDD;
+  background: #f6f6f6;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .caption {
+  position: relative;
+  margin: -2em 0 0.5em 0;
+  padding: 1em;
+  -webkit-box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .caption div.title {
+  font-size: 1.4em;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .content table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .content table tr {
+  border-bottom: 0.05em solid #aaa;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .content table tr th {
+  color: #31B395;
+  font-weight: normal;
+  text-align: left;
+  padding: 0.5em;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .content table tr td {
+  padding: 0.5em;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem .itemContent .content table tr td a.button {
+  display: block;
+  width: 1.5em;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption {
+  background: #D89E24;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li {
+  margin: 0 0.5em;
+  padding: 0;
+  cursor: pointer;
+  float: left;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li span {
+  display: block;
+  padding: 0.5em;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li a {
+  display: block;
+  padding: 0.5em 0.5em .5em 2em;
+  color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  background-position: 0.5em center;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li a:hover {
+  background-color: #DEAD49;
+  text-decoration: none;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li a.bugs {
+  background-image: url("../images/bug.svg");
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li a.website {
+  background-image: url("../images/web.svg");
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation li a.server {
+  background-image: url("../images/cloud.svg");
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #task .caption ul.navigation::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body div#admPanel div#blockContext div#blockTaskWork #work .caption {
+  background: #274D97;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile {
+  width: 100%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm {
+  margin: 1em 0;
+  padding: 0;
+  width: 60%;
+  float: left;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .caption {
+  position: relative;
+  margin: -2em 0 0.5em 0;
+  padding: 1em;
+  -webkit-box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff;
+  background: #c32056;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .caption div.title {
+  font-size: 1.4em;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent {
+  width: 100%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field {
+  margin: 1%;
+  padding: 0;
+  float: left;
+  border-bottom: 0.1em solid #BBBBBB;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field input {
+  padding: 0.3em;
+  width: 96%;
+  border: none;
+  background: none;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field input:focus {
+  border: none;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field textarea {
+  padding: 0.3em;
+  width: 98%;
+  height: 2em;
+  border: none;
+  background: none;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldCompany {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldUserName {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldEmail {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldFirstName {
+  width: 48%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldLastName {
+  width: 48%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldAddress {
+  width: 98%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldCity {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldCountry {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldPostalCode {
+  width: 31.3%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldAboutMe {
+  width: 98%;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldSubmit {
+  padding: 0.5em;
+  text-align: right;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldSubmit input[type=submit] {
+  cursor: pointer;
+  margin-top: 1em;
+  padding: 0.5em 2em;
+  border: none;
+  background: #c32056;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldSubmit::before {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo {
+  position: relative;
+  margin: 1em 0;
+  padding: 0;
+  width: 40%;
+  float: right;
+  text-align: center;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo .userPhoto {
+  margin: -5em auto 0 auto;
+  width: 10em;
+  height: 10em;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo .userPhoto img {
+  border-radius: 50%;
+  height: auto;
+  width: auto;
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.16em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.16em rgba(0, 0, 0, 0.3) !important;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo .userCompany {
+  padding: 0.5em 0;
+  font-size: 1.2em;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo .userName {
+  padding: 0.5em 0;
+  font-size: 1.4em;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserInfo .userInformation {
+  padding: 0.5em 0;
+  font-size: 1.1em;
+}
+
+body div#admPanel div#blockFooter {
+  margin: 0;
+  padding: 0;
+}
+
+body div#admPanel div#blockFooter .mainMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body div#admPanel div#blockFooter .mainMenu ul li {
+  margin: 0 0.5em;
+  padding: 0;
+  cursor: pointer;
+  float: left;
+}
+
+body div#admPanel div#blockFooter .mainMenu ul li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body div#admPanel div#blockFooter .mainMenu ul li a:hover {
+  text-decoration: underline;
+}
+
+body div#admPanel div#blockFooter .mainMenu ul::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body .clearing {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body .textRight {
+  text-align: right !important;
+}
+
+body .blockMargin_05em {
+  margin: 0.5em !important;
+}
+
+body .blockMargin_1em {
+  margin: 1em !important;
+}
+
+body .blockMargin_2pr {
+  margin: 2% !important;
+}
+
+body .blockPadding_2pr {
+  padding: 2% !important;
+}
+
+body .blockPadding_1em {
+  padding: 1em !important;
+}
+
+body .blockPaddingTop_1em {
+  padding-top: 1em !important;
+}
+
+body .blockPaddingRight_1em {
+  padding-right: 1em !important;
+}
+
+body .blockPaddingBottom_1em {
+  padding-left: 1em !important;
+}
+
+body .blockPaddingLeft_1em {
+  padding-left: 1em !important;
+}
+
+body .blockBorderGray {
+  border: 0.1em solid #DDDDDD;
+}
+
+body .blockRightShadow {
+  -webkit-box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+}
+
+body .blockShadow {
+  -webkit-box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+}
+
+body .blockBGLightGray {
+  background-color: #f6f6f6 !important;
+}
+
+body .blockBGDarkGray {
+  background-color: #eaeaea !important;
+}
+
+body .blockLeft {
+  float: left !important;
+}
+
+body .blockWidth_50pr {
+  width: 50%;
+}
+
+/* Стили для десктопа - начало */
+@media only screen and (min-width: 817px) and (max-width: 1017px) {
+  body div#blockMain div#admMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#iconAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admPanel {
+    width: calc(100vw - 17em);
+    min-width: calc(100vw - 17em);
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockInfo .blockInfoItem {
+    width: 50% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile {
+    width: 100%;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserForm {
+    width: 100%;
+    float: nome;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserInfo {
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 667px) and (max-width: 817px) {
+  body div#blockMain div#admMenu {
+    display: block;
+    position: fixed;
+    padding: 2.2em 0 0 1.5em;
+    float: none;
+    width: 2em;
+    min-height: 1.4em;
+    background: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  body div#blockMain div#admMenu:hover {
+    width: 15em;
+    min-height: 100vh;
+    z-index: 101;
+    padding: 0;
+    background-color: #f6f6f6 !important;
+    -webkit-box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+            box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  }
+  body div#blockMain div#admMenu:hover div#iconAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admMenu:hover div#textAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#iconAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#textAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admPanel {
+    width: 100vw;
+  }
+  body div#blockMain div#admPanel div#blockContext h1 {
+    padding-left: 2.4em;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockInfo .blockInfoItem {
+    width: 50% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile {
+    width: 100%;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserForm {
+    width: 100%;
+    float: nome;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserInfo {
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 517px) and (max-width: 667px) {
+  body div#blockMain div#admMenu {
+    display: block;
+    position: fixed;
+    padding: 2.2em 0 0 1.5em;
+    float: none;
+    width: 2em;
+    min-height: 1.4em;
+    background: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  body div#blockMain div#admMenu:hover {
+    width: 15em;
+    min-height: 100vh;
+    z-index: 101;
+    padding: 0;
+    background-color: #f6f6f6 !important;
+    -webkit-box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+            box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  }
+  body div#blockMain div#admMenu:hover div#iconAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admMenu:hover div#textAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#iconAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#textAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admPanel {
+    width: 100vw;
+  }
+  body div#blockMain div#admPanel div#blockContext h1 {
+    padding-left: 2.4em;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockInfo .blockInfoItem {
+    width: 50% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile {
+    width: 100%;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserForm {
+    width: 100%;
+    float: nome;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserInfo {
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 517px) {
+  body div#blockMain div#admMenu {
+    display: block;
+    position: fixed;
+    padding: 2.2em 0 0 1.5em;
+    float: none;
+    width: 2em;
+    min-height: 1.4em;
+    background: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  body div#blockMain div#admMenu:hover {
+    width: 15em;
+    min-height: 100vh;
+    z-index: 101;
+    padding: 0;
+    background-color: #f6f6f6 !important;
+    -webkit-box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+            box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important;
+  }
+  body div#blockMain div#admMenu:hover div#iconAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admMenu:hover div#textAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#iconAdmMenu {
+    display: block;
+  }
+  body div#blockMain div#admMenu div#textAdmMenu {
+    display: none;
+  }
+  body div#blockMain div#admPanel {
+    width: 100vw;
+  }
+  body div#blockMain div#admPanel div#blockContext h1 {
+    padding-left: 2.4em;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockInfo .blockInfoItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockStatistics .blockStatisticsItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockContext div#blockTaskWork .blockTaskWorkItem {
+    width: 100% !important;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile {
+    width: 100%;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserForm {
+    width: 100%;
+    float: nome;
+  }
+  body div#blockMain div#admPanel div#blockUserProfile div#blockUserInfo {
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}

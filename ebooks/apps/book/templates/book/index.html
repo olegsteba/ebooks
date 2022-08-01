@@ -1,0 +1,20 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <div id="blockStatistics">
+        {% for book in books %}
+        <div id="sale" class="blockStatisticsItem">
+            <div class="itemContent">
+                <div class="graphics title">{{ book.book_name }}</div>
+                <div class="image"><img src="images/graphics.svg" /></div>
+                <div class="">{{ book.description|linebreaks|truncatewords:50 }}</div>
+                <hr />
+                <div>{{ book.genre_id }}</div>
+                <div><a href="{{ book.get_absolute_url }}" class="link-read-book">Подробнее</a></div>
+            </div>
+        </div>   
+        {% endfor %}
+    </div>
+
+{% endblock content %}

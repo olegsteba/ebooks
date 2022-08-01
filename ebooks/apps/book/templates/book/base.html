@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'book/font/stylesheet.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'book/css/style.css' %}">
+    <script></script>
+</head>
+<body>
+    <script type="text/javascript">
+
+    </script>
+<div id="blockMain">
+
+    <div id="admMenu" class="blockBGLightGray blockRightShadow">
+        <div id="blockAdmMenu">
+            <div id="iconAdmMenu"><img src="images/menu.png" alt=""></div>
+            <div id="textAdmMenu">
+                <div class="blockPadding_1em">
+                    <h1><a href="{% url 'home' %}">eBooks</a></h1>
+                </div>
+                <hr />    
+                {% block mainmenu %}
+                <div class="blockPadding_1em leftMenu">
+                    <ul>
+                        {% for menu in main_menu %}
+                            <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endblock mainmenu %}
+                <hr />
+                <div class="blockPadding_1em leftMenu">
+                    <h1>Меню по жанрам</h1>
+                    <ul>
+                        {% if genre_select == 0 %}
+                            <li class="active"><a href="{% url 'home' %}">Все жанры</a></li>
+                        {% else %}
+                            <li><a href="{% url 'home' %}">Все жанры</a></li>
+                        {% endif %} 
+                        {% for genre in genres %}
+                            {% if genre.pk == genre_select %}
+                                <li class="active"><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
+                            {% else %}
+                                <li><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
+                            {% endif %} 
+                        {% endfor %}
+                    </ul>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <div id="admPanel">
+        <div class="blockPadding_1em">
+            <div id="blockContext">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,667 @@
+body
+    margin: 0
+    padding: 0
+    font-family: 'Segoe UI', sans-serif
+    font-size: 10pt
+    background-color: #eaeaea
+    width: 100%
+    height: 100%
+    color: #333
+    h1
+        font-weight: bold
+        font-size: 1.4em
+    hr
+        padding: 0
+        border: 0
+        height: 0.1em
+        border-top: 0.05em solid #aaa
+    img 
+        border: none
+        max-width: 100%
+        height: auto
+    a
+        color: #333
+        text-decoration: none
+        &:hover
+            text-decoration: underline        
+    div#blockMain
+        margin: 0
+        padding: 0
+        max-width: 1980px
+        min-width: 500px
+        width: 100%
+        height: 100%        
+        min-height: 100vh
+        display: flex
+    div#admMenu
+        margin: 0
+        padding: 0
+        display: block
+        position: relative
+        float: left
+        flex-direction: column
+        width: 15em
+        min-height: 100vh
+        background-color: #f6f6f6
+        div#blockAdmMenu
+            width: inherit
+            position: sticky
+            top: 0
+            div#iconAdmMenu
+                display: none
+                img              
+                    cursor: pointer
+            div#textAdmMenu
+                .leftMenu
+                    ul
+                        margin: 0
+                        padding: 0
+                        list-style: none
+                        li
+                            margin: 0
+                            padding: 0
+                            a
+                                display: block
+                                padding: 1em 1em 1em 2em
+                                background-position: 0.3em center
+                                color: #333
+                                text-decoration: none
+                                background-repeat: no-repeat
+                                background-size: 1.4em 1.4em                            
+                            a.home
+                                background-image: url('../images/dashboard_gray.svg')
+                            a.login
+                                background-image: url('../images/account_gray.svg')
+                            a.about
+                                background-image: url('../images/map_gray.svg')
+                            a.add_book
+                                background-image: url('../images/notify_gray.svg')
+                            a.question
+                                background-image: url('../images/support_gray.svg')
+                            &:hover
+                                background-color: #c32056
+                                color: #FFFFFF
+                                a
+                                    color: #FFFFFF
+                                a.home
+                                    background-image: url('../images/dashboard_white.svg')
+                                a.login
+                                    background-image: url('../images/account_white.svg')
+                                a.about
+                                    background-image: url('../images/map_gray.svg')
+                                a.add_book
+                                    background-image: url('../images/notify_gray.svg')
+                                a.question
+                                    background-image: url('../images/web.svg')
+                        li.active
+                            background-color: #c32056
+                            color: #FFFFFF
+                            a
+                                color: #FFFFFF
+                            a.dashboard
+                                background-image: url('../images/dashboard_white.svg')
+                            a.user_profile
+                                background-image: url('../images/account_white.svg')
+                            a.maps
+                                background-image: url('../images/map_gray.svg')
+                            a.notifications
+                                background-image: url('../images/notify_gray.svg')
+                            a.support
+                                background-image: url('../images/web.svg')
+
+    div#admPanel
+        margin: 0
+        padding: 0 
+        float: left       
+        flex-direction: column
+        width: calc(100vw - 17em)
+        min-width: calc(100vw - 17em)
+        min-height: 100vh
+        background-color: #eaeaea
+        div#blockContext
+            margin: 0
+            padding: 0
+            min-height: calc(100vh - 5.2em)
+
+            div#blockInfo
+                width: 100%
+                display: flex
+                flex-wrap: wrap
+                .blockInfoItem
+                    margin: 0.5em 0
+                    width: 25%
+                    float: left
+                    display: flex
+                    .itemContent
+                        margin: 0.5em
+                        padding: 1em
+                        width: 100%
+                        position: relative
+                        box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        border: 0.1em solid #DDDDDD
+                        background: #f6f6f6                        
+                        .icon
+                            position: absolute
+                            width: 2.5em
+                            height: 2.5em
+                            padding: 0.5em
+                            top: -1em
+                            left: 1em
+                            box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        .text-info
+                            font-size: 1.6em !important
+                        a
+                            display: block
+                            padding-left: 1.4em 
+                            color: #333
+                            text-decoration: none
+                            background-repeat: no-repeat
+                            background-size: 1em 1em
+                            background-position: left center
+                            &:hover
+                                text-decoration: underline
+                #data
+                    .icon
+                        background: #448B00
+                    a
+                        background-image: url('../images/alert.png') 
+                #revenue
+                    .icon
+                        background: #D89E24
+                    a
+                        background-image: url('../images/calendar.png') 
+                #fixed_issues
+                    .icon
+                        background: #274D97
+                    a
+                        background-image: url('../images/down.png')            
+                #followers
+                    .icon
+                        background: #C32056
+                    a
+                        background-image: url('../images/time.png') 
+
+            div#blockStatistics
+                width: 100%
+                display: flex
+                flex-wrap: wrap
+                .blockStatisticsItem
+                    margin: 0.5em 0
+                    width: 33.3%
+                    float: left
+                    display: flex
+                    .itemContent
+                        margin: 0.5em
+                        padding: 1em
+                        width: 100%
+                        position: relative
+                        box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        border: 0.1em solid #DDDDDD
+                        background: #f6f6f6                     
+                        .graphics
+                            position: relative
+                            margin: -1em 0 0.5em 0
+                            padding: 0.5em
+                            box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        .title
+                            position: relative
+                            margin: -1em 0 0.5em 0
+                            padding: 0.5em
+                            box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important                            
+                            font-size: 1.4em
+                            color: #FFFFFF
+                        a
+                            display: block
+                            padding-left: 1.4em 
+                            color: #333
+                            text-decoration: none
+                            background-repeat: no-repeat
+                            background-size: 1em 1em
+                            background-position: left center
+                            &:hover
+                                text-decoration: underline                    
+                #sale
+                    .graphics
+                        background: #448B00
+                    a
+                        background-image: url('../images/time.png')                     
+                #email
+                    .graphics
+                        background: #D89E24  
+                    a
+                        background-image: url('../images/time.png')                     
+                #task
+                    .graphics
+                        background: #274D97                         
+                    a
+                        background-image: url('../images/time.png')                                  
+            div#blockTaskWork
+                width: 100%
+                display: flex
+                flex-wrap: wrap
+                .blockTaskWorkItem
+                    margin: 0.5em 0
+                    width: 50%
+                    float: left
+                    display: flex
+                    .itemContent
+                        margin: 0.5em
+                        padding: 1em
+                        width: 100%
+                        position: relative
+                        box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        border: 0.1em solid #DDDDDD
+                        background: #f6f6f6                     
+                        .caption
+                            position: relative
+                            margin: -2em 0 0.5em 0
+                            padding: 1em
+                            box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                            color: #ffffff
+                            div.title
+                                font-size: 1.4em                    
+                        .content
+                            table
+                                margin: 0
+                                padding: 0
+                                width: 100%
+                                border-collapse: collapse
+                                tr
+                                    border-bottom: 0.05em solid #aaa
+                                    th
+                                        color: #31B395
+                                        font-weight: normal
+                                        text-align: left
+                                        padding: 0.5em
+                                    td
+                                        padding: 0.5em
+                                        a.button
+                                            display: block
+                                            width: 1.5em
+                #task
+                    .caption
+                        background: #D89E24 
+                        ul.navigation
+                            margin: 0
+                            padding: 0
+                            list-style: none
+                            li
+                                margin: 0 0.5em
+                                padding: 0
+                                cursor: pointer
+                                float: left
+                                span
+                                    display: block
+                                    padding: 0.5em
+                                a
+                                    display: block
+                                    padding: 0.5em 0.5em .5em 2em
+                                    color: #ffffff
+                                    background-repeat: no-repeat
+                                    background-size: 1em 1em
+                                    background-position: 0.5em center                                
+                                    &:hover
+                                        background-color: #DEAD49
+                                        text-decoration: none
+                                a.bugs
+                                    background-image: url('../images/bug.svg')
+                                a.website
+                                    background-image: url('../images/web.svg')     
+                                a.server
+                                    background-image: url('../images/cloud.svg')
+                            &::after
+                                content: ''
+                                display: block
+                                height: 0
+                                clear: both
+                #work
+                    .caption
+                        background: #274D97 
+            div#blockUserProfile
+                width: 100%
+                div#blockUserForm
+                    margin: 1em 0
+                    padding: 0
+                    width: 60%
+                    float: left
+                    .caption
+                        position: relative
+                        margin: -2em 0 0.5em 0
+                        padding: 1em
+                        box-shadow: 0em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                        color: #ffffff
+                        background: #c32056
+                        div.title
+                            font-size: 1.4em 
+                    .formContent
+                        width: 100%
+                        .form-field
+                            margin: 1%
+                            padding: 0
+                            float: left
+                            border-bottom: 0.1em solid #BBBBBB 
+                            input
+                                padding: 0.3em
+                                width: 96%
+                                border: none
+                                background: none
+                                &:focus
+                                    border: none
+                            textarea
+                                padding: 0.3em
+                                width: 98%
+                                height: 2em
+                                border: none
+                                background: none                                
+                        .fieldCompany
+                            width: 31.3%
+                        .fieldUserName
+                            width: 31.3%
+                        .fieldEmail
+                            width: 31.3%
+                        .fieldFirstName
+                            width: 48%
+                        .fieldLastName
+                            width: 48%
+                        .fieldAddress
+                            width: 98%
+                        .fieldCity
+                            width: 31.3%
+                        .fieldCountry
+                            width: 31.3%
+                        .fieldPostalCode
+                            width: 31.3%
+                        .fieldAboutMe
+                            width: 98%                          
+                        .fieldSubmit
+                            padding: 0.5em
+                            text-align: right
+                            input[type=submit]
+                                cursor: pointer
+                                margin-top: 1em
+                                padding: 0.5em 2em
+                                border: none
+                                background: #c32056
+                                color: #FFFFFF
+                                text-transform: uppercase
+                            &::before
+                                content: ''
+                                display: block
+                                height: 0
+                                clear: both  
+                        &::after
+                            content: ''
+                            display: block
+                            height: 0
+                            clear: both                        
+                div#blockUserInfo
+                    position: relative
+                    margin: 1em 0
+                    padding: 0
+                    width: 40%
+                    float: right
+                    text-align: center
+                    .userPhoto
+                        margin: -5em auto 0 auto
+                        width: 10em
+                        height: 10em
+                        img
+                            border-radius: 50%
+                            height: auto
+                            width: auto
+                            box-shadow: 0.1em 0.1em 0.2em 0.16em rgba(0, 0, 0, 0.3) !important
+                    .userCompany
+                        padding: 0.5em 0
+                        font-size: 1.2em
+                    .userName
+                        padding: 0.5em 0
+                        font-size: 1.4em
+                    .userInformation
+                        padding: 0.5em 0
+                        font-size: 1.1em
+
+        div#blockFooter
+            margin: 0
+            padding: 0
+            .mainMenu
+                ul
+                    margin: 0
+                    padding: 0
+                    list-style: none
+                    li
+                        margin: 0 0.5em
+                        padding: 0
+                        cursor: pointer
+                        float: left
+                        a
+                            display: block
+                            color: #333
+                            text-decoration: none
+                            font-weight: bold
+                            &:hover
+                                text-decoration: underline
+                    &::after
+                        content: ''
+                        display: block
+                        height: 0
+                        clear: both
+
+    .clearing
+        content: ''
+        display: block
+        height: 0
+        clear: both
+    .textRight
+        text-align: right !important
+    .blockMargin_05em
+        margin: 0.5em !important
+    .blockMargin_1em
+        margin: 1em !important
+    .blockMargin_2pr
+        margin: 2% !important        
+    .blockPadding_2pr
+        padding: 2% !important        
+    .blockPadding_1em
+        padding: 1em !important
+    .blockPaddingTop_1em
+        padding-top: 1em !important        
+    .blockPaddingRight_1em
+        padding-right: 1em !important        
+    .blockPaddingBottom_1em
+        padding-left: 1em !important        
+    .blockPaddingLeft_1em
+        padding-left: 1em !important     
+    .blockBorderGray
+        border: 0.1em solid #DDDDDD 
+    .blockRightShadow
+        box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+    .blockShadow
+        box-shadow: 0.1em 0.1em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+    .blockBGLightGray
+        background-color: #f6f6f6 !important
+    .blockBGDarkGray
+        background-color: #eaeaea !important
+    .blockLeft
+        float: left !important
+    .blockWidth_50pr
+        width: 50%
+    
+
+/* Стили для десктопа - начало */
+@media only screen and (min-width: 817px) and (max-width: 1017px)
+    body       
+        div#blockMain
+            div#admMenu
+                display: block
+                div#iconAdmMenu
+                    display: none                
+            div#admPanel
+                width: calc(100vw - 17em)
+                min-width: calc(100vw - 17em)
+                div#blockContext
+                    div#blockInfo
+                        .blockInfoItem
+                            width: 50% !important
+                    div#blockTaskWork
+                        .blockTaskWorkItem
+                            width: 100% !important
+                div#blockUserProfile
+                    width: 100%
+                    div#blockUserForm
+                        width: 100%
+                        float: nome
+                    div#blockUserInfo
+                        position: relative
+                        width: 100%
+                        float: none                            
+        
+@media only screen and (min-width: 667px) and (max-width: 817px)
+    body
+        div#blockMain
+            div#admMenu
+                display: block
+                position: fixed
+                padding: 2.2em 0 0 1.5em
+                float: none
+                width: 2em
+                min-height: 1.4em
+                background: none !important
+                box-shadow: none !important
+                &:hover
+                    width: 15em
+                    min-height: 100vh
+                    z-index: 101
+                    padding: 0
+                    background-color: #f6f6f6 !important
+                    box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                    div#iconAdmMenu
+                        display: none
+                    div#textAdmMenu
+                        display: block
+                div#iconAdmMenu
+                    display: block                         
+                div#textAdmMenu
+                    display: none
+            div#admPanel
+                width: 100vw
+                div#blockContext
+                    h1
+                        padding-left: 2.4em
+                    div#blockInfo
+                        .blockInfoItem
+                            width: 50% !important
+                    div#blockTaskWork
+                        .blockTaskWorkItem
+                            width: 100% !important
+                div#blockUserProfile
+                    width: 100%
+                    div#blockUserForm
+                        width: 100%
+                        float: nome
+                    div#blockUserInfo
+                        position: relative
+                        width: 100%
+                        float: none                            
+
+@media only screen and (min-width: 517px) and (max-width: 667px)
+    body
+        div#blockMain
+            div#admMenu
+                display: block
+                position: fixed
+                padding: 2.2em 0 0 1.5em
+                float: none
+                width: 2em
+                min-height: 1.4em
+                background: none !important
+                box-shadow: none !important
+                &:hover
+                    width: 15em
+                    min-height: 100vh
+                    z-index: 101
+                    padding: 0
+                    background-color: #f6f6f6 !important
+                    box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                    div#iconAdmMenu
+                        display: none
+                    div#textAdmMenu
+                        display: block
+                div#iconAdmMenu
+                    display: block                         
+                div#textAdmMenu
+                    display: none
+            div#admPanel
+                width: 100vw
+                div#blockContext
+                    h1
+                        padding-left: 2.4em                    
+                    div#blockInfo
+                        .blockInfoItem
+                            width: 50% !important
+                    div#blockStatistics
+                        .blockStatisticsItem
+                            width: 100% !important
+                    div#blockTaskWork
+                        .blockTaskWorkItem
+                            width: 100% !important
+                div#blockUserProfile
+                    width: 100%
+                    div#blockUserForm
+                        width: 100%
+                        float: nome
+                    div#blockUserInfo
+                        position: relative
+                        width: 100%
+                        float: none                            
+
+@media only screen  and (min-width: 0px) and (max-width: 517px)
+    body
+        div#blockMain
+            div#admMenu
+                display: block
+                position: fixed
+                padding: 2.2em 0 0 1.5em
+                float: none
+                width: 2em
+                min-height: 1.4em
+                background: none !important
+                box-shadow: none !important
+                &:hover
+                    width: 15em
+                    min-height: 100vh
+                    z-index: 101
+                    padding: 0
+                    background-color: #f6f6f6 !important
+                    box-shadow: 0.1em 0em 0.2em 0.05em rgba(0, 0, 0, 0.3) !important
+                    div#iconAdmMenu
+                        display: none
+                    div#textAdmMenu
+                        display: block
+                div#iconAdmMenu
+                    display: block                         
+                div#textAdmMenu
+                    display: none
+            div#admPanel
+                width: 100vw
+                div#blockContext
+                    h1
+                        padding-left: 2.4em                    
+                    div#blockInfo
+                        .blockInfoItem
+                            width: 100% !important
+                    div#blockStatistics
+                        .blockStatisticsItem
+                            width: 100% !important
+                    div#blockTaskWork
+                        .blockTaskWorkItem
+                            width: 100% !important
+                div#blockUserProfile
+                    width: 100%
+                    div#blockUserForm
+                        width: 100%
+                        float: nome
+                    div#blockUserInfo
+                        position: relative
+                        width: 100%
+                        float: none                            
+

@@ -36,7 +36,7 @@ class Book(models.Model):
     )
         
     def get_absolute_url(self):
-        return reverse('book', kwargs={"book_id": self.pk})
+        return reverse('book', kwargs={"book_slug": self.slug})
     
     def __str__(self):
         return self.book_name
@@ -53,7 +53,7 @@ class Genre(models.Model):
     is_deleted = models.BooleanField(default=False, verbose_name='Удален')
 
     def get_absolute_url(self):
-        return reverse('genre', kwargs={"genre_id": self.pk})
+        return reverse('genre', kwargs={"genre_slug": self.slug})
         
     def __str__(self):
         return self.genre_name

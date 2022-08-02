@@ -4,7 +4,7 @@ from .models import Book, Genre, PublishingHouse, Author, BookInAuthor
 
 class BookAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'book_name', 'book_image', 
+        'id', 'book_name', 'slug', 'book_image', 
         'date_create', 'genre', 'is_deleted',
     )
     list_display_links = ('id', 'book_name',)
@@ -15,18 +15,19 @@ class BookAdmin(admin.ModelAdmin):
         (
             (None,{
                 'fields': (
-                    'book_name', 'description', 'book_image',
+                    'book_name', 'slug', 'description', 'book_image',
                     'date_create', 'is_deleted',
                     'genre', 'publishing_house', 'author',
                 )
             }),
         )
     )
+    prepopulated_fields = {'slug': ('book_name',)} #Автоматическое заполнение слага URL
     
     
 class GenreAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'genre_name', 'is_deleted',
+        'id', 'genre_name', 'slug', 'is_deleted',
     )
     list_display_links = ('id', 'genre_name',)
     search_fields = ('genre_name',)
@@ -36,11 +37,12 @@ class GenreAdmin(admin.ModelAdmin):
         (
             (None,{
                 'fields': (
-                    'genre_name', 'is_deleted',
+                    'genre_name', 'slug', 'is_deleted',
                 )
             }),
         )
-    )    
+    )
+    prepopulated_fields = {'slug': ('genre_name',)}    
 
 
 class PublishingHouseAdmin(admin.ModelAdmin):

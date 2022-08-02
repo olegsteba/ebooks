@@ -2,6 +2,8 @@ from multiprocessing import context
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
+
+from .forms import AddBookForm
 from .models import Book, Genre
 
 
@@ -17,11 +19,22 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'book/about.html')
+    return HttpResponse("Жанры")
 
 
 def addbook(request):
-    return HttpResponse("Жанры")
+    if request.method == 'POST':
+        form = AddBookForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+    else:
+        form = AddBookForm()
+        
+    context = {
+        'form': form,
+        'title': 'Добавить книгу',        
+    }    
+    return render(request, 'book/book_add.html', context=context)
 
 
 def question(request):
@@ -32,8 +45,8 @@ def login(request):
     return HttpResponse("Жанры")
 
 
-def show_book(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
+def show_book(request, book_slug):
+    book = get_object_or_404(Book, slug=book_slug)
     
     context = {
         'book': book,
@@ -43,19 +56,19 @@ def show_book(request, book_id):
 
     return render(request, 'book/book_detail.html', context=context)
 
-def show_genre(request, genre_id):
+def show_genre(request, genre_slug):
     
     try:
-        genre = Genre.objects.get(pk=genre_id)
+        genre = Genre.objects.get(slug=genre_slug)
     except Exception:
         raise Http404()
     
-    books = Book.objects.filter(genre_id=genre_id)
+    books = Book.objects.filter(genre_id=genre.pk)
        
     context = {
         'books': books, 
         'title': f'Список книг жанра: {genre}',        
-        'genre_selected': genre_id,
+        'genre_selected': genre.pk,
     }
     
     return render(request, 'book/book_list.html', context=context)

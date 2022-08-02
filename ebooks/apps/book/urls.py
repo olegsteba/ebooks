@@ -7,6 +7,6 @@ urlpatterns = [
     path('addbook/', addbook, name='add_book'),
     path('question/', question, name='question'),
     path('login/', login, name='login'),
-    path('book/<int:book_id>/', show_book, name='book'),
-    path('genre/<int:genre_id>/', show_genre, name='genre'),
+    path('book/<slug:book_slug>/', show_book, name='book'),
+    path('genre/<slug:genre_slug>/', show_genre, name='genre'),
 ]

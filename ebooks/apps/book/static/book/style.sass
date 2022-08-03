@@ -346,8 +346,9 @@ body
                         .form-field
                             margin: 1%
                             padding: 0
-                            float: left
                             border-bottom: 0.1em solid #BBBBBB 
+                            label
+                                font-weight: bold
                             input
                                 padding: 0.3em
                                 width: 96%
@@ -358,9 +359,16 @@ body
                             textarea
                                 padding: 0.3em
                                 width: 98%
-                                height: 2em
+                                height: 3.5em
                                 border: none
-                                background: none                                
+                                background: none
+                            select
+                                padding: 0.3em
+                                width: 96%
+                                border: none
+                                background: none
+                                &:focus
+                                    border: none                                                               
                         .fieldCompany
                             width: 31.3%
                         .fieldUserName

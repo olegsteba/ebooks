@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 
 from .forms import AddBookForm
-from .models import Book, Genre
+from .models import Book, Genre, PublishingHouse, Author, BookInAuthor
 
 
 def index(request):
@@ -25,8 +25,23 @@ def about(request):
 def addbook(request):
     if request.method == 'POST':
         form = AddBookForm(request.POST)
-        if form.is_valid():
-            print(form.cleaned_data)
+        if form.is_valid():           
+            try:
+                book = Book.objects.create(
+                    book_name=form.cleaned_data['book_name'],
+                    slug=form.cleaned_data['slug'],
+                    description=form.cleaned_data['description'],
+                    date_create=form.cleaned_data['date_create'],
+                    is_deleted=form.cleaned_data['is_deleted'],
+                    genre=form.cleaned_data['genre'],
+                    publishing_house=form.cleaned_data['publishing_house'],
+                )
+                author = form.cleaned_data['author']
+                book.author.add(*author)
+                book.save()
+                return redirect('home')
+            except:
+                form.add_error(None, 'Ошибка при добавлении книги')
     else:
         form = AddBookForm()
         

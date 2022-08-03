@@ -549,8 +549,11 @@ body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formC
 body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field {
   margin: 1%;
   padding: 0;
-  float: left;
   border-bottom: 0.1em solid #BBBBBB;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field label {
+  font-weight: bold;
 }
 
 body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field input {
@@ -567,9 +570,20 @@ body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formC
 body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field textarea {
   padding: 0.3em;
   width: 98%;
-  height: 2em;
+  height: 3.5em;
   border: none;
   background: none;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field select {
+  padding: 0.3em;
+  width: 96%;
+  border: none;
+  background: none;
+}
+
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field select:focus {
+  border: none;
 }
 
 body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .fieldCompany {

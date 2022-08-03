@@ -567,6 +567,10 @@ body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formC
   border: none;
 }
 
+body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field input.field-checkbox {
+  width: auto !important;
+}
+
 body div#admPanel div#blockContext div#blockUserProfile div#blockUserForm .formContent .form-field textarea {
   padding: 0.3em;
   width: 98%;

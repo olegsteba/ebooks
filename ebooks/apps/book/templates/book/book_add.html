@@ -11,7 +11,7 @@
                         <div>Добавление новой книги</div>
                     </div>
                     <div class="formContent">
-                        <form action="{% url 'add_book' %}" method="post">
+                        <form action="{% url 'add_book' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %} 
                             <div class="form-error">{{ form.non_field_errors }}</div>
                             {% for f in form %}                       

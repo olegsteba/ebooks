@@ -7,13 +7,17 @@ from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import AddBookForm
 from .models import Book, Genre, PublishingHouse, Author, BookInAuthor
+from .filters import BookFilter
+from django_filters.views import FilterView
 
 
-class BookList(ListView):
+class BookList(FilterView):
     """Формирование всего списка книг"""
     model = Book
     template_name = 'book/book_list.html'
     context_object_name = 'books'
+    filterset_class = BookFilter
+    allow_empty = False
     
     def get_context_data(self, *, object_list=None, **kwargs):
         """Формируем контекст для вывода"""
@@ -27,18 +31,20 @@ class BookList(ListView):
         return Book.objects.filter(is_deleted=False)
 
 
-class BookGenre(ListView):
+class BookGenre(FilterView):
     """Формирование списка книг определенного жанра"""
     model = Book
     template_name = 'book/book_list.html'
     context_object_name = 'books'
+    filterset_class = BookFilter
     allow_empty = False
     
     def get_context_data(self, *, object_list=None, **kwargs):
         """Формируем контекст для вывода"""
+        genre = Genre.objects.get(slug=self.kwargs['genre_slug'])
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Список книг жанра: ' + str(context['books'][0].genre)
-        context['genre_selected'] = context['books'][0].genre_id
+        context['title'] = f'Список книг жанра: ' + str(genre)
+        context['genre_selected'] = genre.pk
         return context
         
     def get_queryset(self):

@@ -1,6 +1,26 @@
 {% extends 'book/base.html' %}
 
 {% block content %}
+    <div id="blockFormFilter" class="form-filter">
+        <div class="blockPadding_1em blockBorderGray blockBGLightGray blockShadow">
+            <div class="caption">
+                <div class="title">Фильтр</div>
+            </div>
+            <form action="" method="get">
+            <div class="formContent">        
+                {% csrf_token %} 
+                {% for ff in filter.form %}                       
+                    <div class="form-field">
+                        <label for={{ ff.id_for_label }}>{{ ff.label }} {{ ff }}</label>
+                    </div>
+                {% endfor %}
+                <div class="form-submit fieldSubmit">
+                    <input type="submit" value=" Применить " />    
+                </div>
+            </div>
+            </form>    
+        </div>
+    </div>
     <h1>{{title}}</h1>
     <div id="blockStatistics">
         {% for book in books %}

@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'book/font/stylesheet.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'book/css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'font/stylesheet.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css_additional %} {% endblock %}
     <script></script>
 </head>
 <body>
@@ -19,7 +20,7 @@
 
     <div id="admMenu" class="blockBGLightGray blockRightShadow">
         <div id="blockAdmMenu">
-            <div id="iconAdmMenu"><img src="images/menu.png" alt=""></div>
+            <div id="iconAdmMenu"><img src="{% static 'book/images/menu.png' %}" alt=""></div>
             <div id="textAdmMenu">
                 <div class="blockPadding_1em">
                     <h1><a href="{% url 'home' %}">eBooks</a></h1>

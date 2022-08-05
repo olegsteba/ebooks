@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{title}}</h1>
     <div id="blockStatistics">
         <div id="blockUserProfile">
             <div id="blockUserForm">
                 <div class="blockPadding_1em blockBorderGray blockBGLightGray blockShadow">
                     <div class="caption">
-                        <div class="title">Форма</div>
-                        <div>Добавление новой книги</div>
+                        <div class="title">Форма регистрации</div>
+                        <div>Заполните следующие поля</div>
                     </div>
                     <div class="formContent">
-                        <form action="{% url 'add_book' %}" method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data">
                             {% csrf_token %} 
                             <div class="form-error">{{ form.non_field_errors }}</div>
                             {% for f in form %}                       
@@ -20,7 +19,7 @@
                                     <div class="form-error">{{ f.errors }}</div>
                                 </div>
                             {% endfor %}
-                            <div class="form-submit fieldSubmit"><input type="submit" value="Добавить" /></div>
+                            <div class="form-submit fieldSubmit"><input type="submit" value="Регистрация" /></div>
                         </form>                        
                     </div>                            
                 </div>

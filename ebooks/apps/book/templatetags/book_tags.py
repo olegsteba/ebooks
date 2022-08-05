@@ -31,5 +31,6 @@ def show_main_menu():
         # {'title': "Задать вопрос", 'url_name': 'question'},
         {'title': "Добавить книгу", 'url_name': 'add_book'},
         {'title': "Войти", 'url_name': 'login'},
+        {'title': "Регистрация", 'url_name': 'registration'},
     ]    
     return {'main_menu': main_menu}

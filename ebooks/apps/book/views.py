@@ -25,7 +25,8 @@ class BookList(DataMixin, FilterView):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Список книг')
-        return dict(list(context.items()) + list(c_def.items()))
+        context.update(c_def)
+        return context
         
     def get_queryset(self):
         """Выборка не удаленных данных"""
@@ -48,7 +49,8 @@ class BookGenre(DataMixin, FilterView):
             title=f'Список книг жанра: ' + str(genre), 
             genre_selected=genre.pk
         )
-        return dict(list(context.items()) + list(c_def.items()))
+        context.update(c_def)
+        return context
         
     def get_queryset(self):
         """Выборка не удаленных данных"""
@@ -67,7 +69,8 @@ class BookDetail(DataMixin, DetailView):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Информация о книге', genre_selected=context['book'].genre_id)
-        return dict(list(context.items()) + list(c_def.items()))
+        context.update(c_def)
+        return context
 
 
 class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
@@ -82,7 +85,7 @@ class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Добавление книги')
-        return dict(list(context.items()) + list(c_def.items()))
+        return context.update(c_def)
         
     
 # def index(request):
@@ -159,15 +162,14 @@ class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
 
 
 def about(request):
-    return HttpResponse("Жанры")
+    context = {
+        'title': 'Добавить книгу',        
+    }        
+    return render(request, 'about.html', context=context)
 
 
 def question(request):
-    return HttpResponse("Жанры")
-
-
-def login(request):
-    return HttpResponse("Жанры")
+    return HttpResponse("")
 
 
 def pageNotFound(request, exception):

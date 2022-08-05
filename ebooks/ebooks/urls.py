@@ -9,7 +9,8 @@ from apps.book.views import pageNotFound
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.book.urls'))
+    path('', include('apps.book.urls')),
+    path('user/', include('apps.user.urls')),
 ]
 
 

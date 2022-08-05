@@ -4,14 +4,16 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django_filters.views import FilterView
 from .forms import AddBookForm
 from .models import Book, Genre, PublishingHouse, Author, BookInAuthor
 from .filters import BookFilter
-from django_filters.views import FilterView
+from .utils import DataMixin
 
 
-class BookList(FilterView):
+class BookList(DataMixin, FilterView):
     """Формирование всего списка книг"""
     model = Book
     template_name = 'book/book_list.html'
@@ -22,16 +24,15 @@ class BookList(FilterView):
     def get_context_data(self, *, object_list=None, **kwargs):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Список книг'
-        context['genre_selected'] = 0
-        return context
+        c_def = self.get_user_context(title='Список книг')
+        return dict(list(context.items()) + list(c_def.items()))
         
     def get_queryset(self):
         """Выборка не удаленных данных"""
         return Book.objects.filter(is_deleted=False)
 
 
-class BookGenre(FilterView):
+class BookGenre(DataMixin, FilterView):
     """Формирование списка книг определенного жанра"""
     model = Book
     template_name = 'book/book_list.html'
@@ -43,15 +44,17 @@ class BookGenre(FilterView):
         """Формируем контекст для вывода"""
         genre = Genre.objects.get(slug=self.kwargs['genre_slug'])
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Список книг жанра: ' + str(genre)
-        context['genre_selected'] = genre.pk
-        return context
+        c_def = self.get_user_context(
+            title=f'Список книг жанра: ' + str(genre), 
+            genre_selected=genre.pk
+        )
+        return dict(list(context.items()) + list(c_def.items()))
         
     def get_queryset(self):
         """Выборка не удаленных данных"""
         return Book.objects.filter(genre__slug=self.kwargs['genre_slug'], is_deleted=False)
     
-class BookDetail(DetailView):
+class BookDetail(DataMixin, DetailView):
     """Формирование детальной информации о книге
     #pk_url_kwarg = 'book_pk'"""
     model = Book
@@ -63,22 +66,23 @@ class BookDetail(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Информация о книге'
-        context['genre_selected'] = context['book'].genre_id
-        return context    
+        c_def = self.get_user_context(title='Информация о книге', genre_selected=context['book'].genre_id)
+        return dict(list(context.items()) + list(c_def.items()))
 
 
-class BookAdd(CreateView):
+class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
     """Формирует форму добавления книги"""
     form_class = AddBookForm
     template_name = 'book/book_add.html'
     success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+#    raise_exception = True
 
     def get_context_data(self, *, object_list=None, **kwargs):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Добавить книгу'
-        return context 
+        c_def = self.get_user_context(title='Добавление книги')
+        return dict(list(context.items()) + list(c_def.items()))
         
     
 # def index(request):

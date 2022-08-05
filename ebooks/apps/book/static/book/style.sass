@@ -463,7 +463,42 @@ body
                         display: block
                         height: 0
                         clear: both
-
+    div.pagination
+        margin: 0
+        padding: 0
+        display: flex
+        ul
+            margin: 0 auto
+            padding: 0
+            list-style: none
+            li
+                margin: 0
+                padding: 0 0.5em
+                float: left
+                span
+                    display: block
+                    padding: 0.5em 1em
+                    font-weight: bold
+                    background: #448B00
+                    box-shadow: 0 0 0.1em 0.1em #448B00
+                    color: #ffffff                        
+                a
+                    display: block
+                    padding: 0.5em 1em
+                    color: #c32056
+                    box-shadow: 0 0 0.1em 0.1em #c32056
+                    background-repeat: no-repeat
+                    background-size: 1em 1em
+                    background-position: 0.5em center                                
+                    &:hover
+                        background: #c32056
+                        color: #ffffff
+                        text-decoration: none
+            &::after
+                content: ''
+                display: block
+                height: 0
+                clear: both
     div#blockFormFilter
         margin: 1em 0
         padding: 0

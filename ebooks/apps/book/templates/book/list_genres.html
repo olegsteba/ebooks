@@ -1,7 +1,9 @@
 {% for genre in genres %}
-{% if genre.pk == genre_selected %}
-    <li class="active"><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
-{% else %}
-    <li><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
-{% endif %} 
+
+        {% if genre.pk == genre_selected %}
+            <li class="active"><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
+        {% else %}
+            <li><a href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a></li>
+        {% endif %} 
+
 {% endfor %}

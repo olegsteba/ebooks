@@ -733,6 +733,60 @@ body div#admPanel div#blockFooter .mainMenu ul::after {
   clear: both;
 }
 
+body div.pagination {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div.pagination ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+body div.pagination ul li {
+  margin: 0;
+  padding: 0 0.5em;
+  float: left;
+}
+
+body div.pagination ul li span {
+  display: block;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  background: #448B00;
+  -webkit-box-shadow: 0 0 0.1em 0.1em #448B00;
+          box-shadow: 0 0 0.1em 0.1em #448B00;
+  color: #ffffff;
+}
+
+body div.pagination ul li a {
+  display: block;
+  padding: 0.5em 1em;
+  color: #c32056;
+  -webkit-box-shadow: 0 0 0.1em 0.1em #c32056;
+          box-shadow: 0 0 0.1em 0.1em #c32056;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  background-position: 0.5em center;
+}
+
+body div.pagination ul li a:hover {
+  background: #c32056;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body div.pagination ul::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 body div#blockFormFilter {
   margin: 1em 0;
   padding: 0;

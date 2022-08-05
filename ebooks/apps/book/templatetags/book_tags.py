@@ -1,4 +1,5 @@
 from django import template
+from django.db.models import Count
 from apps.book.models import Book, Genre, PublishingHouse, Author, BookInAuthor
 
 
@@ -15,21 +16,20 @@ def get_genres(filter=None):
 @register.inclusion_tag('book/list_genres.html')
 def show_genres(sort=None, genre_selected=0):
     if not sort:
-        genres = Genre.objects.all()
+        genres = Genre.objects.annotate(Count('genre_books'))
     else:
-        genres = Genre.objects.order_by(sort)
+        genres = Genre.objects.annotate(Count('genre_books')).order_by(sort)
     
     return {"genres": genres, "genre_selected": genre_selected}
 
 
 @register.inclusion_tag('book/main_menu.html')
-def show_main_menu(sort=None, genre_selected=0):
+def show_main_menu():
     main_menu = [
         {'title': "Главная", 'url_name': 'home'}, 
         {'title': "О сате", 'url_name': 'about'},
+        # {'title': "Задать вопрос", 'url_name': 'question'},
         {'title': "Добавить книгу", 'url_name': 'add_book'},
-        {'title': "Задать вопрос", 'url_name': 'question'},
         {'title': "Войти", 'url_name': 'login'},
     ]    
-    
     return {'main_menu': main_menu}

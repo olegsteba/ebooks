@@ -2,7 +2,15 @@
 <div class="blockPadding_1em leftMenu">
     <ul>
         {% for menu in main_menu %}
-            <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+            {% if user.is_authenticated %}
+                {% if menu.url_name != 'login'%}
+                    <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+                {% endif %}
+            {% else %}
+                {% if menu.url_name != 'add_book'%}
+                    <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+                {% endif %}
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

@@ -85,7 +85,8 @@ class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
         """Формируем контекст для вывода"""
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Добавление книги')
-        return context.update(c_def)
+        context.update(c_def)
+        return context
         
     
 # def index(request):
@@ -163,7 +164,16 @@ class BookAdd(LoginRequiredMixin, DataMixin, CreateView):
 
 def about(request):
     context = {
-        'title': 'Добавить книгу',        
+        'title': 'Добавить книгу',    
+        'main_menu': [
+            {'title': "Главная", 'url_name': 'home'}, 
+            {'title': "О сате", 'url_name': 'about'},
+            # {'title': "Задать вопрос", 'url_name': 'question'},
+            {'title': "Добавить книгу", 'url_name': 'add_book'},
+            {'title': "Войти", 'url_name': 'login'},
+            {'title': "Регистрация", 'url_name': 'registration'},
+            {'title': "Выйти", 'url_name': 'logout'},
+        ]             
     }        
     return render(request, 'about.html', context=context)
 

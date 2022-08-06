@@ -23,14 +23,14 @@ def show_genres(sort=None, genre_selected=0):
     return {"genres": genres, "genre_selected": genre_selected}
 
 
-@register.inclusion_tag('book/main_menu.html')
-def show_main_menu():
-    main_menu = [
-        {'title': "Главная", 'url_name': 'home'}, 
-        {'title': "О сате", 'url_name': 'about'},
-        # {'title': "Задать вопрос", 'url_name': 'question'},
-        {'title': "Добавить книгу", 'url_name': 'add_book'},
-        {'title': "Войти", 'url_name': 'login'},
-        {'title': "Регистрация", 'url_name': 'registration'},
-    ]    
-    return {'main_menu': main_menu}
+# @register.inclusion_tag('book/main_menu.html')
+# def show_main_menu():
+#     main_menu = [
+#         {'title': "Главная", 'url_name': 'home'}, 
+#         {'title': "О сате", 'url_name': 'about'},
+#         # {'title': "Задать вопрос", 'url_name': 'question'},
+#         {'title': "Добавить книгу", 'url_name': 'add_book'},
+#         {'title': "Войти", 'url_name': 'login'},
+#         {'title': "Регистрация", 'url_name': 'registration'},
+#     ]    
+#     return {'main_menu': main_menu}

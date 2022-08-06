@@ -25,8 +25,24 @@
                 <div class="blockPadding_1em">
                     <h1><a href="{% url 'home' %}">eBooks</a></h1>
                 </div>
-                <hr />    
-                {% show_main_menu %}
+                <hr />  
+                
+                <div class="blockPadding_1em leftMenu">
+                    <ul>
+                        {% for menu in main_menu %}
+                            {% if request.user.is_authenticated %}
+                                {% if menu.url_name != 'login' and menu.url_name != 'registration' %}
+                                    <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+                                {% endif %}
+                            {% else %}
+                                {% if menu.url_name != 'add_book' and menu.url_name != 'logout' %}
+                                    <li><a href="{% url menu.url_name %}" class="{{ menu.url_name }}">{{ menu.title }}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+
                 <hr />
                 <div class="blockPadding_1em leftMenu">
                     <h1>Меню по жанрам</h1>
